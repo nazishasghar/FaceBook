@@ -1,6 +1,8 @@
 # FaceBook
  A simple facebook clone to learn the basics of MERN 
  
+ ![KB-MERN-Featured](KB-MERN-Featured.jpg)
+ 
  Just clone it use npm run dev on Backend and npm start on frontend
  
  Technologies used:
