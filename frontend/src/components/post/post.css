@@ -1,0 +1,164 @@
+.post-maincontainer {
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  margin: 0rem;
+}
+.post-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+.post-container__one {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.post-container__initails {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+}
+.post-container__initails-profile img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.post-container__delete {
+  padding: 2rem;
+  cursor: pointer;
+}
+.post-container__action {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+.post-container__mainImage img {
+  width: 25rem;
+  object-fit: cover;
+  height: 25rem;
+  border-radius: 1rem;
+}
+.post-container__mainImage {
+  display: flex;
+  justify-content: center;
+}
+.post-container__initailsName {
+  padding: 0.4rem;
+}
+.post-container__initailsName p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.post-container__likesCount {
+  width: 100%;
+  padding: 1rem 0 0rem 3rem;
+}
+.post-container__commentInput {
+  width: 100%;
+  padding: 0rem 0 0.5rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-container__commentInput input {
+  border: 1px black solid;
+  width: 80%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.post-container__commentContainer {
+  width: 90%;
+  background-color: rgb(215, 234, 243);
+  display: inline;
+  border-radius: 1rem;
+  padding: 0rem 0 0 1rem;
+}
+.post-container__commentBy {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.post-container-comment {
+  margin: 0;
+  font-weight: medium;
+}
+
+.dislike-button {
+  animation: ripple linear 0.3s;
+}
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media only screen and (max-width: 30rem) {
+  .post-maincontainer {
+    width: 20rem;
+  }
+  .post-container__mainImage img {
+    width: 17rem;
+    height: 17rem;
+  }
+  .post-container__initails-profile img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .post-container__initailsName p {
+    font-size: 1rem;
+  }
+  .post-container__commentBy {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 23.5rem) {
+  .post-maincontainer {
+    width: 18rem;
+  }
+  .post-container__mainImage img {
+    width: 15rem;
+    height: 15rem;
+  }
+  .post-container__initails-profile img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .post-container__initailsName p {
+    font-size: 0.8rem;
+  }
+  .post-container__commentBy {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 20rem) {
+  .post-maincontainer {
+    width: 15rem;
+  }
+  .post-container__mainImage img {
+    width: 12rem;
+    height: 12rem;
+  }
+  .post-container__initails-profile img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .post-container__initailsName p {
+    font-size: 0.7rem;
+  }
+  .post-container__commentBy {
+    font-size: 0.8rem;
+  }
+}

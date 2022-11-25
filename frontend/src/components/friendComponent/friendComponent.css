@@ -1,0 +1,46 @@
+.friend-component__container {
+  background-color: white;
+  display: flex;
+  margin: 0;
+  border-radius: 1rem;
+  width: 20rem;
+  justify-content: space-between;
+}
+.friend-component__initials {
+  display: flex;
+}
+.friend-component__connect {
+  padding: 1rem;
+  cursor: pointer;
+}
+.friend-component__image img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.friend-component__name {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.friend-component__initialsText {
+  padding: 0.6rem;
+}
+.friend-component__status {
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 30rem) {
+  .friend-component__container {
+    width: 15rem;
+  }
+  .friend-component__name {
+    font-size: 1rem;
+  }
+  .friend-component__image img {
+    width: 4rem;
+    height: 4rem;
+  }
+}

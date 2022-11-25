@@ -1,0 +1,24 @@
+.recentLogin-container {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+.recentLogin-container__Name {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0 0rem 0rem;
+}
+.recentLogin-container:hover {
+  box-shadow: 0 0 0 3px #dddfe2;
+  transition: all 0.2s ease-out;
+}
+.recentLogin-container__profileImage img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+@media only screen and (max-width: 20rem) {
+  .recentLogin-container__profileImage img {
+    width: 8rem;
+    height: 8rem;
+  }
+}

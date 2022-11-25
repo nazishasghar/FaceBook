@@ -1,0 +1,31 @@
+.request-container {
+  display: flex;
+  flex-direction: column;
+}
+.request-container__img {
+  padding: 0.5rem;
+}
+.request-container__img img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+}
+.request-container__Name {
+  padding: 0.5rem;
+}
+.request-container__Name p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.request-container__initails {
+  display: flex;
+  align-items: center;
+}
+
+.request-container__action {
+  display: flex;
+  justify-content: center;
+}
+.request-container__actionElement {
+  padding: 0.8rem;
+}

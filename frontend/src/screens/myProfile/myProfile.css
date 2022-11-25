@@ -1,0 +1,114 @@
+.myprofile-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(215, 234, 243);
+  width: 100%;
+}
+.myprofile-container__main {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2rem;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.myprofile-container__img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 1rem;
+}
+.myprofile-container__img img {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 6rem;
+}
+.myprofile-container__edit {
+  cursor: pointer;
+}
+.myprofile-container__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.myprofile-container__name h2 {
+  margin: 0;
+  font-size: 4rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.myprofile-container__infoContainer {
+  background-color: rgb(215, 234, 243);
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+}
+.myprofile-container__infoContainerElement {
+  display: block;
+  padding: 0.5rem;
+}
+.myprofile-container__infoContainerOne {
+  width: 50%;
+}
+.myprofile-container__infoContainerTwo {
+  width: 50%;
+}
+.education-container {
+  display: flex;
+}
+
+@media only screen and (max-width: 30rem) {
+  .myprofile-container__main {
+    width: 23rem;
+  }
+  .myprofile-container__img img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .myprofile-container__name h2 {
+    font-size: 2.5rem;
+  }
+  .education-container {
+    display: block;
+  }
+}
+@media only screen and (max-width: 23.5rem) {
+  .myprofile-container__main {
+    width: 20rem;
+  }
+  .myprofile-container__img img {
+    width: 8rem;
+    height: 8rem;
+  }
+  .myprofile-container__name h2 {
+    font-size: 2rem;
+  }
+  .myprofile-container__infoContainerElement h3 {
+    font-size: 1.2rem;
+  }
+  .myprofile-container__infoContainerElement p {
+    font-size: 0.8rem;
+  }
+  .education-container {
+    display: block;
+  }
+}
+@media only screen and (max-width: 20rem) {
+  .myprofile-container__main {
+    width: 18rem;
+  }
+  .myprofile-container__img img {
+    width: 7rem;
+    height: 7rem;
+  }
+  .myprofile-container__name h2 {
+    font-size: 1.5rem;
+  }
+  .education-container {
+    display: block;
+  }
+}

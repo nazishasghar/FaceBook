@@ -1,0 +1,113 @@
+.mainNavigation-container {
+  background-color: white;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  transition: 0.5s all ease-in-out;
+}
+.mainNavigation-container__img img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  margin: 0;
+  padding: 0.5rem;
+}
+.mainNavigation-container__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainNavigation__stack {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.mainNavigation__stack-element {
+  padding: 1rem;
+  cursor: pointer;
+}
+.mainNavigation-container__sidebar {
+  display: none;
+}
+.mainNavigation__stack-profileImage img {
+  width: 3.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border: 2px rgb(59, 193, 255) solid;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+.mainNavigation__setting-element {
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+.navigation-children {
+  position: relative;
+  top: 4rem;
+  transition: 0.5s all ease-in-out;
+}
+@media screen and (max-width: 60rem) {
+  .mainNavigation-container__sidebar {
+    display: block;
+    padding: 1rem;
+  }
+  .mainNavigation-container__img {
+    display: none;
+  }
+  .mainNavigation__stack-element {
+    display: none;
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav div {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav div:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

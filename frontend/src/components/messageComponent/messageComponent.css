@@ -1,0 +1,45 @@
+.message-container__Component {
+  background-color: white;
+  border-radius: 1rem;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 1px 1px 1px 5px #dddfe2;
+}
+.message-container__name p {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+}
+.message-container__name {
+  display: flex;
+  flex-direction: column;
+}
+#time {
+  font-size: 1rem;
+}
+.message-container__initails {
+  display: flex;
+  align-items: center;
+}
+.message-container__img img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+}
+.message-container__img {
+  padding: 1rem;
+}
+.message-container__Messages {
+  padding: 1rem;
+}
+.message-container__Messages p {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.message-container__Component:hover {
+  transition: 0.3s all ease-in-out;
+  transform: translate(20px, 20px);
+}

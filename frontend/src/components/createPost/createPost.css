@@ -1,0 +1,58 @@
+.create-post__container {
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  box-shadow: 0px 0px 0px 0.5px gray;
+}
+.create-post__imageSelector {
+  padding: 0.5rem;
+}
+.create-post__cationfield input {
+  width: 25rem;
+  border: 1px rgb(215, 234, 243) solid;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.post-container__publish {
+  width: 25rem;
+}
+
+@media only screen and (max-width: 30rem) {
+  .create-post__container {
+    width: 20rem;
+  }
+  .create-post__cationfield input {
+    width: 15rem;
+  }
+  .post-container__publish {
+    width: 15rem;
+  }
+}
+
+@media only screen and (max-width: 23.5rem) {
+  .create-post__container {
+    width: 18rem;
+  }
+  .create-post__cationfield input {
+    font-size: 0.9rem;
+    width: 15rem;
+  }
+  .post-container__publish {
+    width: 15rem;
+  }
+}
+@media only screen and (max-width: 20rem) {
+  .create-post__container {
+    width: 15rem;
+  }
+  .create-post__cationfield input {
+    font-size: 0.8rem;
+    width: 10rem;
+  }
+  .post-container__publish {
+    width: 10rem;
+  }
+}

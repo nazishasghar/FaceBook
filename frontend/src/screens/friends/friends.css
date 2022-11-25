@@ -1,0 +1,17 @@
+.friend-screen__container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(215, 234, 243);
+}
+.friend-screen__element {
+  padding: 1rem;
+}
+.friends-error {
+  font-size: 5rem;
+  color: black;
+}
+@media only screen and (max-width: 20rem) {
+  .friends-error {
+    font-size: 4rem;
+  }
+}

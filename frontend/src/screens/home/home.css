@@ -1,0 +1,103 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(215, 234, 243);
+  width: 100%;
+}
+.home-container__one {
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 25rem;
+}
+.home-container__two {
+  height: 100vh;
+  width: 100%;
+}
+.home-container__three {
+  width: 100%;
+}
+.container-one__addStory {
+  padding: 5rem 0 0 0;
+  height: 40%;
+  cursor: pointer;
+}
+.container-one__connect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border-radius: 4rem;
+  padding: 1rem;
+  box-shadow: 0 0 0 1px rgb(196, 187, 187);
+  height: 12rem;
+}
+.stories-container {
+  width: 100%;
+  padding: 1rem;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+.createPost-Container {
+  padding: 1rem;
+}
+.post-container {
+  padding: 1rem;
+}
+.stories-container__element {
+  display: inline-block;
+  padding: 0.5rem;
+}
+.friends-container {
+  padding: 1rem;
+}
+.home-container__twoOther {
+  display: flex;
+  width: 100%;
+}
+.message-container {
+  padding: 1rem;
+  width: 25rem;
+}
+.message-container__element {
+  padding: 1rem;
+  display: inline;
+}
+.notification-count {
+  position: absolute;
+  background-color: red;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 60rem) {
+  .home-container__three {
+    display: none;
+  }
+  .home-container__one {
+    display: none;
+  }
+  .friends-container {
+    display: none;
+  }
+  .stories-container {
+    display: none;
+  }
+  .home-container__two {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-container__twoOther {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
