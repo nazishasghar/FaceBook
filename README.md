@@ -5,6 +5,14 @@
  
  Just clone it use npm run dev on Backend and npm start on frontend
  
+ ![Login](Login.png)
+ 
+ Login Screen
+ 
+ ![Home](Home.png)
+ 
+ Home Screen
+ 
  Technologies used:
  
  Node.js
