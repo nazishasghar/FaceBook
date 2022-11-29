@@ -11,7 +11,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const message_routes_1 = require("./message-routes");
 const login_routes_1 = require("./routes/login-routes");
-dotenv_1.default.config();
+dotenv_1.default.config({ path: './environmental.env' });
 const app = (0, express_1.default)();
 app.use(body_parser_1.default.json());
 app.use((req, res, next) => {
@@ -36,10 +36,10 @@ app.use("/api/post", post_routes_1.postRouter);
 app.use("/api/messages", message_routes_1.messageRouter);
 // Custom Error Handling
 mongoose_1.default
-    .connect("mongodb+srv://Nazish:sCj4JWBk91a4R5uN@cluster0.pjdokdn.mongodb.net/facebook?retryWrites=true&w=majority")
+    .connect(`${process.env.usermongourl}`)
     .then(() => {
-    app.listen(3004, () => {
-        console.log(`⚡️[server]: Server is running a https://localhost:3004`);
+    app.listen(process.env.port, () => {
+        console.log(`⚡️[server]: Server is running a https://localhost:${process.env.port}`);
     });
 })
     .catch((err) => {

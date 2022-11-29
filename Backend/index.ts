@@ -11,9 +11,8 @@ import { postRouter } from "./routes/post-routes";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import { messageRouter } from "./message-routes";
-import { authorizationMiddleware } from "./controllers/middleware/check_auth";
 import { authRouter } from "./routes/login-routes";
-dotenv.config();
+dotenv.config({path:'./environmental.env'});
 const app: Express = express();
 
 app.use(bodyParser.json());
@@ -46,11 +45,11 @@ app.use("/api/messages", messageRouter);
 
 mongoose
   .connect(
-    "mongodb+srv://Nazish:sCj4JWBk91a4R5uN@cluster0.pjdokdn.mongodb.net/facebook?retryWrites=true&w=majority"
+    `${process.env.usermongourl}`
   )
   .then(() => {
-    app.listen(3004, () => {
-      console.log(`⚡️[server]: Server is running a https://localhost:3004`);
+    app.listen(process.env.port, () => {
+      console.log(`⚡️[server]: Server is running a https://localhost:${process.env.port}`);
     });
   })
 

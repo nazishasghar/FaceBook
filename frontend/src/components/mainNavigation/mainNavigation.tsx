@@ -22,6 +22,11 @@ const MainNavigation = (props: any) => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userId = useSelector((state: any) => state.auth.userId);
   const token = useSelector((state: any) => state.auth.token);
+  const tokenConfig = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
   const CustomToggle: any = React.forwardRef<any>(
     ({ children, onClick }: any, ref) => (
       <div
@@ -132,7 +137,7 @@ const MainNavigation = (props: any) => {
               <Dropdown.Menu>
                 <Dropdown.Item
                   onClick={() =>
-                    logoutHandler(userId)
+                    logoutHandler(userId,tokenConfig)
                       .then((_response) => {
                         dispatch(AuthAction.logout());
                         navigate("/", { replace: true });
