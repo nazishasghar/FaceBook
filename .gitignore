@@ -1,3 +1,2 @@
-
-/Backend/environmental.env
-/Backend/index.ts
+.env
+node_modules
