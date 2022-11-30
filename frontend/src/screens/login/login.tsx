@@ -15,6 +15,7 @@ import { AuthAction } from "../../redux/reducer";
 import "./login.css";
 import { CancelOutlined, ImageOutlined } from "@mui/icons-material";
 import { createAccount } from "../../API/authAPI";
+import { RootState } from "../../redux/store";
 
 const Login = () => {
   let dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Login = () => {
   const item: any = localStorage.getItem("userData");
   let userData = JSON.parse(item);
   const passwordRef = React.useRef<HTMLInputElement>(null);
-  const token = useSelector((state: any) => state.auth.token);
+  const token = useSelector((state: RootState) => state.auth.token);
   console.log(userData);
   const [showRecent, setShowRecent] = useState(false);
   const [showCreateAccount, setShowCreateAccount] = useState(false);

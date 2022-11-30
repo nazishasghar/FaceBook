@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 import { authEndPoint } from "./apiEndpoint";
 export const logoutHandler = (userId: string, tokenConfig): Promise<any> => {
   return axios.post(authEndPoint + "/logout", { userId }, tokenConfig);

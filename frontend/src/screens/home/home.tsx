@@ -28,6 +28,7 @@ import MessageComponent from "../../components/messageComponent/messageComponent
 import { getMessageForUser } from "../../API/messageAPI";
 import FriendRequest from "../../components/RequestComponent/friendRequest";
 import { getUserbyId } from "../../API/userApi";
+import { RootState } from "../../redux/store";
 
 const Home = () => {
   const token = useSelector((state: any) => state.auth.token);
@@ -58,14 +59,14 @@ const Home = () => {
       </div>
     )
   );
-  const expirationTime = useSelector((state: any) => state.auth.expirationTime);
-  const userId = useSelector((state: any) => state.auth.userId);
-  const userData = useSelector((state: any) => state.auth.userData);
-  const stories = useSelector((state: any) => state.stories.stories);
-  const posts = useSelector((state: any) => state.posts.posts);
-  const friends = useSelector((state: any) => state.friends.friends);
-  const messages = useSelector((state: any) => state.messages.messages);
-  let time = calculateRemainingTime(expirationTime);
+  const expirationTime = useSelector((state: RootState) => state.auth.expirationTime);
+  const userId = useSelector((state: RootState) => state.auth.userId);
+  const userData = useSelector((state: RootState) => state.auth.userData);
+  const stories = useSelector((state: RootState) => state.stories.stories);
+  const posts = useSelector((state: RootState) => state.posts.posts);
+  const friends = useSelector((state: RootState) => state.friends.friends);
+  const messages = useSelector((state: RootState) => state.messages.messages);
+  let time = calculateRemainingTime(new Date(expirationTime));
   const storyRef = React.useRef<HTMLInputElement>(null);
   const handleChange = (event) => {
     let formData = new FormData();
@@ -149,7 +150,8 @@ const Home = () => {
             onSubmit={() => {
               let formData = new FormData();
               formData.append("imageUrl", storyRef.current.files[0]);
-              createStory(multimediaConfig, userId)
+              formData.append('userId',userId)
+              createStory(multimediaConfig, formData)
                 .then((response) => {
                   const createdStory = response.data.story;
                   dispatch(StoryAction.addStories({ createdStory }));

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resourceEndPoint } from "../../API/apiEndpoint";
 import { addFriend, rejectRequest } from "../../API/friendsAPI";
 import { AuthAction, FriendsAction } from "../../redux/reducer";
+import { RootState } from "../../redux/store";
 import "./friendRequest.css";
 
 interface FriendRequestProps {
@@ -17,9 +18,9 @@ const FriendRequest: FunctionComponent<FriendRequestProps> = ({
   Name,
   id,
 }) => {
-  const userId = useSelector((state: any) => state.auth.userId);
+  const userId = useSelector((state: RootState) => state.auth.userId);
   let dispatch = useDispatch();
-  const token = useSelector((state: any) => state.auth.token);
+  const token = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

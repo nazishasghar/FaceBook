@@ -8,6 +8,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { updateUser } from "../../API/userApi";
 import { AuthAction, FriendsAction } from "../../redux/reducer";
 import { rejectRequest, sendRequest, unfriendUser } from "../../API/friendsAPI";
+import { RootState } from "../../redux/store";
 interface MyProfileProps {}
 
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
@@ -36,7 +37,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
 
     setValidated(true);
   };
-  const userData = useSelector((state: any) => state.auth.userData);
+  const userData = useSelector((state: RootState) => state.auth.userData);
   const multimediaConfig = {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -52,7 +53,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
   let button;
   let isFriend;
   let isAlreadySentRequest;
-  const friends = useSelector((state: any) => state.friends.friends);
+  const friends = useSelector((state: RootState) => state.friends.friends);
   if (location.state) {
     if (friends.find((item) => item._id === location.state.item._id)) {
       button = (

@@ -14,14 +14,15 @@ import { Dropdown } from "react-bootstrap";
 import { logoutHandler } from "../../API/authAPI";
 import { AuthAction } from "../../redux/reducer";
 import { Menu } from "@mui/material";
+import { RootState } from "../../redux/store";
 
 const MainNavigation = (props: any) => {
   const [showSideNav, setShowSideNav] = useState(false);
   let dispatch = useDispatch();
   let navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const userId = useSelector((state: any) => state.auth.userId);
-  const token = useSelector((state: any) => state.auth.token);
+  const userId = useSelector((state: RootState) => state.auth.userId);
+  const token = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

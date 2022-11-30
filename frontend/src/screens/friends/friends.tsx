@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import FriendComponent from "../../components/friendComponent/friendComponent";
+import { RootState } from "../../redux/store";
 import "./friends.css";
 const Friend = () => {
-  const friends = useSelector((state: any) => state.friends.friends);
+  const friends = useSelector((state: RootState) => state.friends.friends);
   return (
     <div className="friend-screen__container">
       <div className="friend-screen__element">

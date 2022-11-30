@@ -1,8 +1,8 @@
-import React from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import "./recentLoginComponent.css";
 const RecentLogin = () => {
-  const userData = useSelector((state: any) => state.auth.userData);
+  const userData = useSelector((state: RootState) => state.auth.userData);
   return (
     <div className="recentLogin-container">
       <div className="recentLogin-container__profileImage">

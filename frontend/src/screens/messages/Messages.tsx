@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMessageForUser, sendMessage } from "../../API/messageAPI";
 import FriendComponent from "../../components/friendComponent/friendComponent";
 import { MessageAction } from "../../redux/reducer";
+import { RootState } from "../../redux/store";
 import "./Messages.css";
 interface MessagesProps {}
 
@@ -11,11 +12,11 @@ const Messages: FunctionComponent<MessagesProps> = () => {
   const [showChat, setShowChat] = useState(false);
   const [friendId, setFriendId] = useState(null);
   const messageRef = React.useRef<HTMLInputElement>(null);
-  const friends = useSelector((state: any) => state.friends.friends);
-  const messages = useSelector((state: any) => state.messages.messages);
+  const friends = useSelector((state: RootState) => state.friends.friends);
+  const messages = useSelector((state: RootState) => state.messages.messages);
   const dispatch = useDispatch();
-  const userId = useSelector((state: any) => state.auth.userId);
-  const token = useSelector((state: any) => state.auth.token);
+  const userId = useSelector((state: RootState) => state.auth.userId);
+  const token = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

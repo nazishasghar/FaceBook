@@ -2,12 +2,13 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { searchUser } from "../../API/userApi";
 import FriendComponent from "../../components/friendComponent/friendComponent";
+import { RootState } from "../../redux/store";
 import "./search.css";
 
 interface SearchProps {}
 
 const Search: FunctionComponent<SearchProps> = () => {
-  const userId = useSelector((state: any) => state.auth.userId);
+  const userId = useSelector((state: RootState) => state.auth.userId);
   const [searchResult, setSearchResults] = useState([]);
   const [queryText, setQueryText] = useState("");
   useEffect(() => {

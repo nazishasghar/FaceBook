@@ -1,14 +1,14 @@
 import axios from "axios";
 import { friendsEndPoint } from "./apiEndpoint";
 
-export const getAllFriends = (tokenConfig, userId): Promise<any> => {
+export const getAllFriends = (tokenConfig:object, userId:string): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/getFriends",
     { userId: userId },
     tokenConfig
   );
 };
-export const getRequestDetail = (userId, tokenConfig): Promise<any> => {
+export const getRequestDetail = (userId:string, tokenConfig:object): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/getAllRequest",
     { userId: userId },
@@ -16,9 +16,9 @@ export const getRequestDetail = (userId, tokenConfig): Promise<any> => {
   );
 };
 export const addFriend = (
-  currentUserId,
-  addedFriendId,
-  tokenConfig
+  currentUserId:string,
+  addedFriendId:string,
+  tokenConfig:object
 ): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/addFriend",
@@ -27,9 +27,9 @@ export const addFriend = (
   );
 };
 export const rejectRequest = (
-  removeRequestFromUserId,
-  removeSentRequestFromUserId,
-  tokenConfig
+  removeRequestFromUserId:string,
+  removeSentRequestFromUserId:string,
+  tokenConfig:object
 ): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/removeRequest",
@@ -38,9 +38,9 @@ export const rejectRequest = (
   );
 };
 export const sendRequest = (
-  sendRequestToUserId,
-  getRequestFromUserId,
-  tokenConfig
+  sendRequestToUserId:string,
+  getRequestFromUserId:string,
+  tokenConfig:object
 ): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/sendRequest",
@@ -49,9 +49,9 @@ export const sendRequest = (
   );
 };
 export const unfriendUser = (
-  currentUserId,
-  unfriendUserId,
-  tokenConfig
+  currentUserId:string,
+  unfriendUserId:string,
+  tokenConfig:object
 ): Promise<any> => {
   return axios.post(
     friendsEndPoint + "/unfriend",

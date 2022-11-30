@@ -1,7 +1,7 @@
 import axios from "axios";
 import { messageEndPoint } from "./apiEndpoint";
 
-export const getMessageForUser = (userId, tokenConfig): Promise<any> => {
+export const getMessageForUser = (userId:string, tokenConfig:object): Promise<any> => {
   return axios.post(
     messageEndPoint + "/getMessagesForUser",
     { userId: userId },
@@ -9,10 +9,10 @@ export const getMessageForUser = (userId, tokenConfig): Promise<any> => {
   );
 };
 export const sendMessage = (
-  SentBy,
-  SentTo,
-  Content,
-  tokenConfig
+  SentBy:string,
+  SentTo:string,
+  Content:string,
+  tokenConfig:object
 ): Promise<any> => {
   return axios.post(
     messageEndPoint + "/sendMessage",

@@ -19,6 +19,7 @@ import {
   sendLikeOnPost,
 } from "../../API/postAPI";
 import { PostAction } from "../../redux/reducer";
+import { RootState } from "../../redux/store";
 import "./post.css";
 
 interface PostProps {
@@ -43,9 +44,9 @@ const Post: FunctionComponent<PostProps> = ({
   let islikedbyUser = null;
   let dispatch = useDispatch();
 
-  const token = useSelector((state: any) => state.auth.token);
-  const posts = useSelector((state: any) => state.posts.posts);
-  const userId = useSelector((state: any) => state.auth.userId);
+  const token = useSelector((state: RootState) => state.auth.token);
+  const posts = useSelector((state: RootState) => state.posts.posts);
+  const userId = useSelector((state: RootState) => state.auth.userId);
   const [liked, setisLiked] = useState(islikedbyUser);
   const [showModal, setShowModal] = useState(false);
   const [showComment, setShowComment] = useState(false);
