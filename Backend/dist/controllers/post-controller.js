@@ -82,7 +82,7 @@ const deletePost = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     const postId = req.params.pid;
     let post;
     try {
-        post = yield Posts.findById(postId).populate("User");
+        post = yield Posts.findOne({ id: postId }).populate("User");
     }
     catch (err) {
         return next(new CustomError_1.HttpError(404, "Something went wrong"));
@@ -122,7 +122,7 @@ const sendLikeOnPost = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     let post;
     let isAlreadyLiked;
     try {
-        post = yield Posts.findById(postId);
+        post = yield Posts.findOne({ id: postId });
     }
     catch (err) {
         return next(new CustomError_1.HttpError(404, "Could not find post"));
@@ -150,7 +150,7 @@ const removeLikeOnPost = (req, res, next) => __awaiter(void 0, void 0, void 0, f
     let post;
     let isAlreadyDisLiked;
     try {
-        post = yield Posts.findById(postId);
+        post = yield Posts.findOne({ id: postId });
     }
     catch (err) {
         return next(new CustomError_1.HttpError(404, "Could not find post"));
@@ -159,7 +159,7 @@ const removeLikeOnPost = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         return next(new CustomError_1.HttpError(404, "No post available"));
     }
     try {
-        post.LikedBy = post.LikedBy.filter((item) => item === userId);
+        post.LikedBy = post.LikedBy.filter((item) => item !== userId);
         console.log(post.LikedBy);
         post.Likes = String(Number(post.Likes) - 1);
         yield post.save();
@@ -175,7 +175,7 @@ const commentOnPost = (req, res, next) => __awaiter(void 0, void 0, void 0, func
     const { Comment } = req.body;
     let post;
     try {
-        post = yield Posts.findById(postId);
+        post = yield Posts.findOne({ id: postId });
     }
     catch (_d) {
         return next(new CustomError_1.HttpError(401, "No post found from provided Id"));

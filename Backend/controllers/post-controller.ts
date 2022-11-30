@@ -78,7 +78,7 @@ export const deletePost = async (
   const postId = req.params.pid;
   let post;
   try {
-    post = await Posts.findById(postId).populate("User");
+    post = await Posts.findOne({id:postId}).populate("User");
   } catch (err) {
     return next(new HttpError(404, "Something went wrong"));
   }
@@ -122,7 +122,7 @@ export const sendLikeOnPost = async (
   let post;
   let isAlreadyLiked;
   try {
-    post = await Posts.findById(postId);
+    post = await Posts.findOne({id:postId});
   } catch (err) {
     return next(new HttpError(404, "Could not find post"));
   }
@@ -151,7 +151,7 @@ export const removeLikeOnPost = async (
   let post;
   let isAlreadyDisLiked;
   try {
-    post = await Posts.findById(postId);
+    post = await Posts.findOne({id:postId});
   } catch (err) {
     return next(new HttpError(404, "Could not find post"));
   }
@@ -159,7 +159,7 @@ export const removeLikeOnPost = async (
     return next(new HttpError(404, "No post available"));
   }
   try {
-    post.LikedBy = post.LikedBy.filter((item: any) => item === userId);
+    post.LikedBy = post.LikedBy.filter((item: any) => item !== userId);
     console.log(post.LikedBy);
     post.Likes = String(Number(post.Likes) - 1);
     await post.save();
@@ -178,7 +178,7 @@ export const commentOnPost = async (
   const { Comment } = req.body;
   let post;
   try {
-    post = await Posts.findById(postId);
+    post = await Posts.findOne({id:postId});
   } catch {
     return next(new HttpError(401, "No post found from provided Id"));
   }

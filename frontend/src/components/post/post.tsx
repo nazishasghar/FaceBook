@@ -40,7 +40,7 @@ const Post: FunctionComponent<PostProps> = ({
   ProfilePic,
   Comments,
 }) => {
-  let islikedbyUser;
+  let islikedbyUser = null;
   let dispatch = useDispatch();
 
   const token = useSelector((state: any) => state.auth.token);
