@@ -5,14 +5,15 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../API/postAPI";
 import { PostAction } from "../../redux/reducer";
+import { RootState } from "../../redux/store";
 import "./createPost.css";
 
 interface CreatePostProps {}
 
 const CreatePost: FunctionComponent<CreatePostProps> = () => {
-  const userId = useSelector((state: any) => state.auth.userId);
-  const userData = useSelector((state: any) => state.auth.userData);
-  const token = useSelector((state: any) => state.auth.token);
+  const userId = useSelector((state: RootState) => state.auth.userId);
+  const userData = useSelector((state: RootState) => state.auth.userData);
+  const token = useSelector((state: RootState) => state.auth.token);
   const dispatch = useDispatch();
   const multimediaConfig = {
     headers: {
