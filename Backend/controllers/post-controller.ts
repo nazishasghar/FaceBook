@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { Post, postSchema } from "../Models/Post";
 import { HttpError } from "../Models/CustomError";
 import { userSchema } from "../Models/User";
-import multer from "multer";
+import { v4 as uuidv4 } from "uuid";
 
 const Posts = mongoose.model("Post", postSchema, "posts");
 const Users = mongoose.model("User", userSchema, "users");
@@ -14,8 +14,11 @@ export const createPost = async (
 ) => {
   let { Caption, Likes, User, ProfilePic } = req.body;
   let file = req.file;
-  console.log(User);
+  if (!file) {
+    return next(new HttpError(404,'No profile'))
+  }
   const createdPost = new Posts<Post>({
+    id:uuidv4(),
     ImageUrl: file?.filename,
     Caption,
     Likes,

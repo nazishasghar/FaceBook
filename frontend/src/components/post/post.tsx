@@ -60,7 +60,7 @@ const Post: FunctionComponent<PostProps> = ({
   let button;
 
   useEffect(() => {
-    let post = posts.find((item: any) => item._id === id);
+    let post = posts.find((item: any) => item.id === id);
     islikedbyUser = post.LikedBy.find((item) => item === userId);
     setisLiked(islikedbyUser);
     axios

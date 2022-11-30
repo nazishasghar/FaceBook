@@ -17,13 +17,17 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Post_1 = require("../Models/Post");
 const CustomError_1 = require("../Models/CustomError");
 const User_1 = require("../Models/User");
+const uuid_1 = require("uuid");
 const Posts = mongoose_1.default.model("Post", Post_1.postSchema, "posts");
 const Users = mongoose_1.default.model("User", User_1.userSchema, "users");
 const createPost = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     let { Caption, Likes, User, ProfilePic } = req.body;
     let file = req.file;
-    console.log(User);
+    if (!file) {
+        return next(new CustomError_1.HttpError(404, 'No profile'));
+    }
     const createdPost = new Posts({
+        id: (0, uuid_1.v4)(),
         ImageUrl: file === null || file === void 0 ? void 0 : file.filename,
         Caption,
         Likes,

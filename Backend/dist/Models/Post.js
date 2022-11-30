@@ -26,10 +26,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
 exports.postSchema = new mongoose_1.Schema({
+    id: { type: String },
     ImageUrl: { type: String },
     Caption: { type: String },
     Likes: { type: Number },
-    LikedBy: [{ type: mongoose_1.Schema.Types.ObjectId }],
+    LikedBy: [{ type: String }],
     Comments: [{ CommentBy: { type: String }, Comment: { type: String } }],
     ProfilePic: { type: String },
     User: { type: mongoose_1.default.Types.ObjectId, required: true, ref: "User" },

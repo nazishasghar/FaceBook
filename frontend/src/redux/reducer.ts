@@ -83,28 +83,29 @@ export const PostsSlice = createSlice({
   reducers: {
     getPosts(state, action): any {
       state.posts = action.payload.posts;
+      state.posts = state.posts.reverse()
     },
     commentOnPost(state, action): any {
-      const post = state.posts.find((item) => item._id === action.payload.id);
+      const post = state.posts.find((item) => item.id === action.payload.id);
       if (post) {
         post.Comments.push(action.payload.Comment);
       }
     },
     likeOnPost(state, action) {
-      const post = state.posts.find((item) => item._id === action.payload.id);
+      const post = state.posts.find((item) => item.id === action.payload.id);
       if (post) {
         post.Likes = post.Likes + 1;
       }
     },
     disLikeOnPost(state, action) {
-      const post = state.posts.find((item) => item._id === action.payload.id);
+      const post = state.posts.find((item) => item.id === action.payload.id);
       if (post) {
         post.Likes = post.Likes - 1;
       }
     },
     deletePost(state, action) {
       state.posts = state.posts.filter(
-        (item) => item._id !== action.payload.id
+        (item) => item.id !== action.payload.id
       );
     },
     addPost(state, action) {

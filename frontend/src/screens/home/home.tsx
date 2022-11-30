@@ -233,8 +233,8 @@ const Home = () => {
               return (
                 <div style={{ paddingTop: "1rem" }}>
                   <Post
-                    key={item._id}
-                    id={item._id}
+                    key={item.id}
+                    id={item.id}
                     imageUrl={item.ImageUrl}
                     ProfilePic={item.ProfilePic}
                     Likes={item.Likes}
