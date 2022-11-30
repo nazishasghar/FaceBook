@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { HttpError } from "../../Models/CustomError";
+import dotenv from "dotenv";
 export const authorizationMiddleware = (
   req: Request,
   res: Response,
@@ -17,7 +18,7 @@ export const authorizationMiddleware = (
     if (!token) {
       return next(new HttpError(401, "No token"));
     }
-    jwt.verify(token, "specialkey");
+    jwt.verify(token, process.env.TOKEN_KEY as string);
     return next();
   } catch (err) {
     const error = new HttpError(401, `Authentication Failed`);

@@ -45,7 +45,7 @@ app.use("/api/messages", messageRouter);
 
 mongoose
   .connect(
-    `${process.env.usermongourl}`
+    `${process.env.MONGO_URL}`
   )
   .then(() => {
     app.listen(process.env.port, () => {

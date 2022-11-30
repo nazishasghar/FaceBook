@@ -83,7 +83,7 @@ export const login = async (
     await existingUser.save();
     token = jwt.sign(
       { userId: existingUser.id, email: existingUser.Email },
-      "specialkey",
+      process.env.TOKEN_KEY as string,
       { expiresIn: "1h" }
     );
   } catch {
