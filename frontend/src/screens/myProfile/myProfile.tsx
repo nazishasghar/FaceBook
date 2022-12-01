@@ -1,5 +1,5 @@
 import "./myProfile.css";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resourceEndPoint } from "../../API/apiEndpoint";
 import { Edit } from "@mui/icons-material";
@@ -9,24 +9,36 @@ import { updateUser } from "../../API/userApi";
 import { AuthAction, FriendsAction } from "../../redux/reducer";
 import { rejectRequest, sendRequest, unfriendUser } from "../../API/friendsAPI";
 import { RootState } from "../../redux/store";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 interface MyProfileProps {}
 
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
-  const token = useSelector((state: any) => state.auth.token);
-  const userId = useSelector((state: any) => state.auth.userId);
-  let dispatch = useDispatch();
+  const token: string = useSelector((state: RootState) => state.auth.token);
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
+  let dispatch: Dispatch<AnyAction> = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const profileRef = React.useRef<HTMLInputElement>(null);
-  const ageRef = React.useRef<HTMLInputElement>(null);
-  const addressRef = React.useRef<HTMLInputElement>(null);
-  const pincodeRef = React.useRef<HTMLInputElement>(null);
-  const maritalRef = React.useRef<HTMLInputElement>(null);
-  const bloodGroupRef = React.useRef<HTMLInputElement>(null);
-  const masterDegreeRef = React.useRef<HTMLInputElement>(null);
-  const masterUniversityRef = React.useRef<HTMLInputElement>(null);
-  const graduationDegreeRef = React.useRef<HTMLInputElement>(null);
-  const graduationUniversityRef = React.useRef<HTMLInputElement>(null);
-  const hobbieRef = React.useRef<HTMLInputElement>(null);
+  const profileRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const ageRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const addressRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const pincodeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const maritalRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const bloodGroupRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const masterDegreeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const masterUniversityRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const graduationDegreeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const graduationUniversityRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const hobbieRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -51,8 +63,6 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
   };
   let location = useLocation();
   let button;
-  let isFriend;
-  let isAlreadySentRequest;
   const friends = useSelector((state: RootState) => state.friends.friends);
   if (location.state) {
     if (friends.find((item) => item._id === location.state.item._id)) {

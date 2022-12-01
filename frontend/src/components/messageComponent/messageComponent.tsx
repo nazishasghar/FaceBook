@@ -15,7 +15,7 @@ const MessageComponent: FunctionComponent<MessageComponentProps> = ({
   SentBy,
 }) => {
   const [user, setUser] = useState(null);
-  const token = useSelector((state: RootState) => state.auth.token);
+  const token: string = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

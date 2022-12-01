@@ -6,7 +6,7 @@ import {
 } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { getAllPost } from "../../API/postAPI";
 import { createStory, getAllStories } from "../../API/storyAPI";
 import CreatePost from "../../components/createPost/createPost";
@@ -29,9 +29,10 @@ import { getMessageForUser } from "../../API/messageAPI";
 import FriendRequest from "../../components/RequestComponent/friendRequest";
 import { getUserbyId } from "../../API/userApi";
 import { RootState } from "../../redux/store";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 
 const Home = () => {
-  const token = useSelector((state: any) => state.auth.token);
+  const token: string = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,
@@ -44,8 +45,8 @@ const Home = () => {
     },
   };
 
-  let dispatch = useDispatch();
-  let navigate = useNavigate();
+  let dispatch: Dispatch<AnyAction> = useDispatch();
+  let navigate: NavigateFunction = useNavigate();
   const CustomToggle: any = React.forwardRef<any>(
     ({ children, onClick }: any, ref) => (
       <div
@@ -59,17 +60,28 @@ const Home = () => {
       </div>
     )
   );
-  const expirationTime = useSelector((state: RootState) => state.auth.expirationTime);
-  const userId = useSelector((state: RootState) => state.auth.userId);
+  const expirationTime: string = useSelector(
+    (state: RootState) => state.auth.expirationTime
+  );
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
   const userData = useSelector((state: RootState) => state.auth.userData);
-  const stories = useSelector((state: RootState) => state.stories.stories);
-  const posts = useSelector((state: RootState) => state.posts.posts);
-  const friends = useSelector((state: RootState) => state.friends.friends);
-  const messages = useSelector((state: RootState) => state.messages.messages);
-  let time = calculateRemainingTime(new Date(expirationTime));
-  const storyRef = React.useRef<HTMLInputElement>(null);
+  const stories: Array<any> = useSelector(
+    (state: RootState) => state.stories.stories
+  );
+  const posts: Array<any> = useSelector(
+    (state: RootState) => state.posts.posts
+  );
+  const friends: Array<any> = useSelector(
+    (state: RootState) => state.friends.friends
+  );
+  const messages: Array<any> = useSelector(
+    (state: RootState) => state.messages.messages
+  );
+  let time: number = calculateRemainingTime(new Date(expirationTime));
+  const storyRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
   const handleChange = (event) => {
-    let formData = new FormData();
+    let formData: FormData = new FormData();
     formData.append("imageUrl", storyRef.current.files[0]);
     formData.append("userId", userId);
     createStory(multimediaConfig, formData)
@@ -150,7 +162,7 @@ const Home = () => {
             onSubmit={() => {
               let formData = new FormData();
               formData.append("imageUrl", storyRef.current.files[0]);
-              formData.append('userId',userId)
+              formData.append("userId", userId);
               createStory(multimediaConfig, formData)
                 .then((response) => {
                   const createdStory = response.data.story;

@@ -9,20 +9,21 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { resourceEndPoint } from "../../API/apiEndpoint";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { logoutHandler } from "../../API/authAPI";
 import { AuthAction } from "../../redux/reducer";
 import { Menu } from "@mui/material";
 import { RootState } from "../../redux/store";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 
 const MainNavigation = (props: any) => {
   const [showSideNav, setShowSideNav] = useState(false);
-  let dispatch = useDispatch();
-  let navigate = useNavigate();
+  let dispatch:Dispatch<AnyAction> = useDispatch();
+  let navigate:NavigateFunction = useNavigate();
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const userId = useSelector((state: RootState) => state.auth.userId);
-  const token = useSelector((state: RootState) => state.auth.token);
+  const userId:string = useSelector((state: RootState) => state.auth.userId);
+  const token:string = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

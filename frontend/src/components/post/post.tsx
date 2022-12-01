@@ -6,8 +6,9 @@ import {
   ThumbUp,
   ThumbUpOutlined,
 } from "@mui/icons-material";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
-import React from "react";
+import React, { SetStateAction } from "react";
 import { FunctionComponent, useEffect, useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,17 +42,20 @@ const Post: FunctionComponent<PostProps> = ({
   ProfilePic,
   Comments,
 }) => {
-  let islikedbyUser = null;
-  let dispatch = useDispatch();
+  let islikedbyUser: string = null;
+  let dispatch: Dispatch<AnyAction> = useDispatch();
 
-  const token = useSelector((state: RootState) => state.auth.token);
-  const posts = useSelector((state: RootState) => state.posts.posts);
-  const userId = useSelector((state: RootState) => state.auth.userId);
+  const token: string = useSelector((state: RootState) => state.auth.token);
+  const posts: Array<any> = useSelector(
+    (state: RootState) => state.posts.posts
+  );
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
   const [liked, setisLiked] = useState(islikedbyUser);
   const [showModal, setShowModal] = useState(false);
   const [showComment, setShowComment] = useState(false);
   const [name, setName] = useState("");
-  const commentRef = React.useRef<HTMLInputElement>(null);
+  const commentRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
   Comments = Comments.slice(-2);
   const tokenConfig = {
     headers: {

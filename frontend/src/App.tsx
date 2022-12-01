@@ -13,7 +13,7 @@ import Search from "./screens/search/search";
 import Messages from "./screens/messages/Messages";
 import { RootState } from "./redux/store";
 function App() {
-  const token = useSelector((state: RootState) => state.auth.token);
+  const token: string = useSelector((state: RootState) => state.auth.token);
   let routes;
   if (token) {
     routes = (

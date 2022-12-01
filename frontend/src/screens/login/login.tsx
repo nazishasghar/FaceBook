@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { authEndPoint } from "../../API/apiEndpoint";
 import {
   calculateExpirationTime,
@@ -16,32 +16,47 @@ import "./login.css";
 import { CancelOutlined, ImageOutlined } from "@mui/icons-material";
 import { createAccount } from "../../API/authAPI";
 import { RootState } from "../../redux/store";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 
 const Login = () => {
-  let dispatch = useDispatch();
-  let navigate = useNavigate();
+  let dispatch: Dispatch<AnyAction> = useDispatch();
+  let navigate: NavigateFunction = useNavigate();
   const item: any = localStorage.getItem("userData");
   let userData = JSON.parse(item);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
-  const token = useSelector((state: RootState) => state.auth.token);
-  console.log(userData);
+  const passwordRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const token: string = useSelector((state: RootState) => state.auth.token);
   const [showRecent, setShowRecent] = useState(false);
   const [showCreateAccount, setShowCreateAccount] = useState(false);
   const [file, setFile] = useState("");
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passRef = React.useRef<HTMLInputElement>(null);
-  const nameRef = React.useRef<HTMLInputElement>(null);
-  const ageRef = React.useRef<HTMLInputElement>(null);
-  const addressRef = React.useRef<HTMLInputElement>(null);
-  const pincodeRef = React.useRef<HTMLInputElement>(null);
-  const mobileRef = React.useRef<HTMLInputElement>(null);
-  const mastersDegreeRef = React.useRef<HTMLInputElement>(null);
-  const mastersUniveristyRef = React.useRef<HTMLInputElement>(null);
-  const graduationDegreeRef = React.useRef<HTMLInputElement>(null);
-  const graduationUniversityRef = React.useRef<HTMLInputElement>(null);
-  const hobbiesRef = React.useRef<HTMLInputElement>(null);
-  const bloodRef = React.useRef<HTMLInputElement>(null);
-  const maritalRef = React.useRef<HTMLInputElement>(null);
+  const emailRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const passRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const nameRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const ageRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const addressRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const pincodeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const mobileRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const mastersDegreeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const mastersUniveristyRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const graduationDegreeRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const graduationUniversityRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const hobbiesRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const bloodRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
+  const maritalRef: React.MutableRefObject<HTMLInputElement> =
+    React.useRef<HTMLInputElement>(null);
   const multimediaConfig = {
     headers: {
       "Content-Type": "multipart/form-data",

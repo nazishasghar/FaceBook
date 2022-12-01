@@ -1,4 +1,5 @@
 import { SendOutlined } from "@mui/icons-material";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import React, { FunctionComponent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMessageForUser, sendMessage } from "../../API/messageAPI";
@@ -12,11 +13,15 @@ const Messages: FunctionComponent<MessagesProps> = () => {
   const [showChat, setShowChat] = useState(false);
   const [friendId, setFriendId] = useState(null);
   const messageRef = React.useRef<HTMLInputElement>(null);
-  const friends = useSelector((state: RootState) => state.friends.friends);
-  const messages = useSelector((state: RootState) => state.messages.messages);
-  const dispatch = useDispatch();
-  const userId = useSelector((state: RootState) => state.auth.userId);
-  const token = useSelector((state: RootState) => state.auth.token);
+  const friends: Array<any> = useSelector(
+    (state: RootState) => state.friends.friends
+  );
+  const messages: Array<any> = useSelector(
+    (state: RootState) => state.messages.messages
+  );
+  const dispatch: Dispatch<AnyAction> = useDispatch();
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
+  const token: string = useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

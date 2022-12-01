@@ -1,4 +1,5 @@
 import { AttachFileOutlined } from "@mui/icons-material";
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import React from "react";
 import { FunctionComponent } from "react";
 import { Button } from "react-bootstrap";
@@ -11,10 +12,10 @@ import "./createPost.css";
 interface CreatePostProps {}
 
 const CreatePost: FunctionComponent<CreatePostProps> = () => {
-  const userId = useSelector((state: RootState) => state.auth.userId);
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
   const userData = useSelector((state: RootState) => state.auth.userData);
-  const token = useSelector((state: RootState) => state.auth.token);
-  const dispatch = useDispatch();
+  const token: string = useSelector((state: RootState) => state.auth.token);
+  const dispatch: Dispatch<AnyAction> = useDispatch();
   const multimediaConfig = {
     headers: {
       "Content-Type": "multipart/form-data",

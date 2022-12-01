@@ -1,3 +1,4 @@
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import React, { FunctionComponent } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,9 +19,9 @@ const FriendRequest: FunctionComponent<FriendRequestProps> = ({
   Name,
   id,
 }) => {
-  const userId = useSelector((state: RootState) => state.auth.userId);
-  let dispatch = useDispatch();
-  const token = useSelector((state: RootState) => state.auth.token);
+  const userId:string = useSelector((state: RootState) => state.auth.userId);
+  let dispatch: Dispatch<AnyAction> = useDispatch();
+  const token:string= useSelector((state: RootState) => state.auth.token);
   const tokenConfig = {
     headers: {
       Authorization: "Bearer " + token,

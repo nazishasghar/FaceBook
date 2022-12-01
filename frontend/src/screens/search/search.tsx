@@ -8,7 +8,7 @@ import "./search.css";
 interface SearchProps {}
 
 const Search: FunctionComponent<SearchProps> = () => {
-  const userId = useSelector((state: RootState) => state.auth.userId);
+  const userId: string = useSelector((state: RootState) => state.auth.userId);
   const [searchResult, setSearchResults] = useState([]);
   const [queryText, setQueryText] = useState("");
   useEffect(() => {
